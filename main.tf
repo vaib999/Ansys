@@ -8,21 +8,7 @@ terraform {
 }
 
 provider "aws" {
-  region = "us-east-1"
-}
-
-data "aws_availability_zones" "available" {}
-
-variable "vpc_cidr" {
-  default = "10.0.0.0/16"
-}
-
-variable "public_subnets" {
-  default = ["10.0.1.0/24", "10.0.2.0/24", "10.0.3.0/24"]
-}
-
-variable "private_subnets" {
-  default = ["10.0.4.0/24", "10.0.5.0/24", "10.0.6.0/24"]
+  region = local.region
 }
 
 resource "aws_vpc" "main" {
@@ -83,8 +69,8 @@ resource "aws_security_group" "web_sg" {
 }
 
 resource "aws_instance" "nginx" {
-  ami                    = "ami-053a45fff0a704a47"
-  instance_type          = "t2.micro"
+  ami                    = var.instance_ami
+  instance_type          = var.instance_type
   subnet_id              = aws_subnet.public[0].id
   security_groups        = [aws_security_group.web_sg.id]
   associate_public_ip_address = true
