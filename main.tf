@@ -81,3 +81,11 @@ resource "aws_security_group" "web_sg" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 }
+
+resource "aws_instance" "nginx" {
+  ami                    = "ami-053a45fff0a704a47"
+  instance_type          = "t2.micro"
+  subnet_id              = aws_subnet.public[0].id
+  security_groups        = [aws_security_group.web_sg.id]
+  associate_public_ip_address = true
+}
