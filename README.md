@@ -7,7 +7,8 @@ This Terraform project provisions AWS infrastructure, including a Virtual Privat
 - Public Subnets: 3 subnets across different availability zones
 - Private Subnets: 3 subnets across different availability zones
 - Internet Access:
-- Public subnets have direct internet access via an Internet Gateway
+    - Public subnets have direct internet access via an Internet Gateway
+    - Private subnets use a NAT Gateway for outbound traffic
 - EC2 Instance: Deployed in a public subnet with a security group allowing HTTP (port 80) access
 
 ## After deployment, Terraform will output:
@@ -15,3 +16,4 @@ This Terraform project provisions AWS infrastructure, including a Virtual Privat
 - VPC ID
 - Public & Private Subnet IDs
 - EC2 Instance Public IP
+- NAT Gateway ID
