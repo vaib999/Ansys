@@ -13,6 +13,6 @@ EC2 Instance: Deployed in a public subnet with a security group allowing HTTP (p
 
 ## After deployment, Terraform will output:
 
-VPC ID
-Public & Private Subnet IDs
-EC2 Instance Public IP
+- VPC ID
+- Public & Private Subnet IDs
+- EC2 Instance Public IP
