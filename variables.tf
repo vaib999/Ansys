@@ -9,11 +9,9 @@ variable "public_subnets" {
 variable "private_subnets" {
   default = ["10.0.4.0/24", "10.0.5.0/24", "10.0.6.0/24"]
 }
-
 variable "instance_ami" {
   default = "ami-053a45fff0a704a47"
 }
-
 variable "instance_type" {
   default = "t2.micro"
 }
